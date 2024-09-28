@@ -2,6 +2,7 @@ const http = require('http');
 const url = require('url');
 const getDate = require('./modules/utils.js');
 const text = require('./lang/en/en.js');
+const port = process.env.PORT || 8888;
 
 class Server {
     handleRequest(req, res) {
@@ -14,7 +15,7 @@ class Server {
 
     start()
     {
-        http.createServer(this.handleRequest).listen(() => {
+        http.createServer(this.handleRequest.bind(this)).listen(port, () => {
             console.log('Server is running on port something');
         }); // create a server and listen on port 8888
     }
