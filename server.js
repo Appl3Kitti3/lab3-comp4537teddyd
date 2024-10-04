@@ -13,7 +13,7 @@ class Server {
     // Handles whenever the url is called
     handleRequest(req, res) {
         let q = url.parse(req.url, true); // parse the url
-        res.writeHead(200, {'Content-Type': 'text/html', "Access-Control-Allow-Origin" : "*"}); // set the response header
+        res.writeHead(200, {'Content-Type': 'text/html', "Access-Control-Allow-Origin" : "https://lab3-example.teddyd-website.xyz"}); // set the response header
         res.write(`${text.HEADER_OPENING}${text.HELLO} ${q.query['name']}${text.BEAUTIFUL_DAY} ${getDate()}${text.HEADER_CLOSING}`); // write the response
         res.end(); // send the response
     }
